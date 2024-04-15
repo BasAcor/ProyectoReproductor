@@ -55,7 +55,7 @@ export default function Remu() {
   }, [dispatch, token]);
   return (
     <Container>
-      <div className="spotify__body">
+      <div className="remu__body">
         <Sidebar />
         <div className="body" ref={bodyRef} onScroll={bodyScrolled}>
           <Navbar navBackground={navBackground} />
@@ -64,7 +64,7 @@ export default function Remu() {
           </div>
         </div>
       </div>
-      <div className="spotify__footer">
+      <div className="remu__footer">
         <Footer />
       </div>
     </Container>
@@ -77,7 +77,7 @@ const Container = styled.div`
   overflow: hidden;
   display: grid;
   grid-template-rows: 85vh 15vh;
-  .spotify__body {
+  .remu__body {
     display: grid;
     grid-template-columns: 15vw 85vw;
     height: 100%;

@@ -1,17 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 import { useStateProvider } from "../utils/StateProvider";
-import { FaSearch } from 'react-icons/fa';
-import { CgProfile } from 'react-icons/cg';
+import { FaSearch } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
 export default function Navbar({ navBackground }) {
   const [{ userInfo }] = useStateProvider();
   return (
-  <Container navBackground={navBackground}>
-    <div className="search__bar">
-      <FaSearch />
-      <input type="text" placeholder="Artist, songs or podcast"></input>
-    </div>
-    <div className="avatar">
+    <Container navBackground={navBackground}>
+      <div className="search__bar">
+        <FaSearch />
+        <input type="text" placeholder="Artists, songs, or podcasts" />
+      </div>
+      <div className="avatar">
         <a href={userInfo?.userUrl}>
           <CgProfile />
           <span>{userInfo?.name}</span>
