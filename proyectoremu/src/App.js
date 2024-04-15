@@ -1,20 +1,19 @@
-import React, {useEffect} from 'react'
-import Login from './components/Login'
-import { useStateProvider } from './utils/StateProvider';
-import { reducerCases } from './utils/Constants';
-import Remu from './components/Remu';
-
+import React, { useEffect } from "react";
+import Login from "./components/Login";
+import Remu from "./components/Remu";
+import { reducerCases } from "./utils/Constants";
+import { useStateProvider } from "./utils/StateProvider";
 export default function App() {
   const [{ token }, dispatch] = useStateProvider();
-  useEffect(()=> {
+  useEffect(() => {
     const hash = window.location.hash;
-    if(hash) {
+    if (hash) {
       const token = hash.substring(1).split("&")[0].split("=")[1];
-   
-      dispatch({ type: reducerCases.SET_TOKEN, token });
+      if (token) {
+        dispatch({ type: reducerCases.SET_TOKEN, token });
+      }
     }
-  },[token, dispatch]);
-  return ( <div>{token ? <Remu/> : <Login/>}</div> );
-};
-
-
+    document.title = "Remu";
+  }, [dispatch, token]);
+  return <div>{token ? <Remu /> : <Login />}</div>;
+}

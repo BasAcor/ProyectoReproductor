@@ -50,7 +50,7 @@ export default function Body({ headerBackground }) {
     track_number
   ) => {
     const response = await axios.put(
-      `https://api.spotify.com/v1/me/player/play`,
+      `https://api.spotify.com/v1/me/player/play/`,
       {
         context_uri,
         offset: {
@@ -60,7 +60,7 @@ export default function Body({ headerBackground }) {
       },
       {
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json/",
           Authorization: "Bearer " + token,
         },
       }
@@ -88,6 +88,7 @@ export default function Body({ headerBackground }) {
       {selectedPlaylist && (
         <>
           <div className="playlist">
+            
             <div className="image">
               <img src={selectedPlaylist.image} alt="selected playlist" />
             </div>
