@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 export default function Playlists() {
     const [{ token, playlists }, dispatch] = useStateProvider();
+
     useEffect(()=> {
         const getPlaylistData = async () => {
             const response = await axios.get(
